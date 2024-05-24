@@ -1,0 +1,57 @@
+---
+import LayoutCore from '@/layouts/Core.astro';
+import CoreHeader from '@/components/core/Header.vue';
+import CoreFooter from '@/components/core/Footer.vue';
+
+import SectionHero from '@/components/section/Hero.vue';
+import SectionQrCode from '@/components/section/QrCode.vue';
+import SectionFeatures from '@/components/section/Features.vue';
+import SectionCtaEmail from '@/components/section/CtaEmail.vue';
+---
+
+<LayoutCore>
+	<div class="layout-core">
+		<!-- HEADER -->
+		<CoreHeader />
+
+		<!-- CONTENT -->
+		<div class="layout-core__content">
+			<div class="layout-core__content__hero">
+				<SectionHero class="layout-core__content__hero" client:load />
+			</div>
+
+			<SectionQrCode client:load />
+
+			<SectionFeatures />
+
+			<SectionCtaEmail client:load />
+		</div>
+
+		<!-- FOOTER -->
+		<div class="layout-core__footer">
+			<CoreFooter />
+		</div>
+	</div>
+	
+</LayoutCore>
+
+<style lang="scss">
+.layout-core {
+	container-type: inline-size;
+	container-name: layout-core;
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 120px;
+
+		&__hero {
+			background-color: var(--color-primary-base);
+		}
+	}
+
+	&__footer {
+		margin-top: 120px;
+	}
+}
+</style>

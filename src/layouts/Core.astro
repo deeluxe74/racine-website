@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Racine, gérer vos plats différemments" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="stylesheet" href="/imports/fonts.import.css">
+		<meta name="generator" content={Astro.generator} />
+		<title>Racine</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global lang="scss">
+	:root {
+		--color-primary-base: #5DA66D;
+		--color-primary-light: #91C788;
+
+		--color-secondary-base: #B6174B;
+		--color-tertiary-base: #FEFFDE;
+		--color-quaternary-base: #BACD92;
+
+		--color-light-base: #ffffff;
+		--color-dark-base: #0b0e0c;
+
+		--font-family-title: 'Merriweather', sans-serif;
+		--font-family-body: 'Verdana', sans-serif;
+
+		--box-width-max-base: 1024px;
+		--box-width-max-mobile: 768px;
+	}
+
+	html {
+		font-family: Verdana, sans-serif;
+		font-size: 16px;
+		background: var(--color-tertiary-base);
+	}
+
+	body {
+		margin: 0;
+		box-sizing: border-box;
+		color: var(--color-dark-base);
+	}
+	
+	section {
+		box-sizing: border-box;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Merriweather', sans-serif;
+		font-weight: 900;
+		margin: 0;
+		font-size: inherit;
+    letter-spacing: 0.08rem;
+	}
+
+	h1 {
+    font-size: 2.5rem;
+	}
+
+	p {
+		line-height: 1.2;
+    letter-spacing: 0.04rem;
+	}
+
+	mark {
+		display: inline-block;
+		background-color: transparent;
+		border: var(--color-secondary-base) solid 2px;
+		border-radius: 8px;
+		padding: 0px 4px;
+		margin: -4px -4px;
+	}
+
+	input, button {
+		font-family: var(--font-family-body);
+		font-size: 1rem;
+	}
+
+	button {
+		cursor: pointer;
+		border: none;
+		background-color: var(--color-secondary-base);
+		padding: 8px 16px;
+		border-radius: 24px;
+		color: var(--color-light-base);
+		transition: all 250ms ease-out;
+
+		@media screen and (max-width: 768px) {
+			border-radius: 16px;
+		}
+
+		&:hover {
+			background-color: var(--color-tertiary-base);
+			color: var(--color-secondary-base);
+		}
+
+		&:focus {
+			background-color: var(--color-secondary-base);
+			color: var(--color-light-base);
+		}
+	}
+</style>
