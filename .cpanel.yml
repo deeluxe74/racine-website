@@ -2,6 +2,4 @@ deployment:
   tasks:
     - export DEPLOY_DIR=/home/zeuz8313/public_html/racine
     - cd $DEPLOY_DIR
-    - /usr/local/bin/git pull
     - /usr/local/bin/npm install
-    - /usr/local/bin/npm run build
