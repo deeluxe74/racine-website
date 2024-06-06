@@ -1,9 +1,18 @@
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, ref, onMounted} from 'vue'
+import { preloadImage } from '../../utils/image.util'
 
 defineProps({
   sending: Boolean,
   responseType: String,
+})
+
+const iconsPath = ref({})
+
+onMounted(async () => {
+  const globIcons = import.meta.glob(`@/assets/svg/icon/*.svg`, { eager: false })
+
+  iconsPath.value = await preloadImage(globIcons)
 })
 </script>
 
@@ -19,9 +28,9 @@ defineProps({
           <slot  />
         </div>
 
-        <img v-if="responseType === 'success'" class="cta-sending__button__icon cta-sending__button__icon--success" src="/public/svg/icon/icon_email_success.svg" />
+        <img v-if="responseType === 'success'" class="cta-sending__button__icon cta-sending__button__icon--success" :src="iconsPath[`icon_email_success`]?.src" />
 
-        <img v-if="responseType === 'error'" class="cta-sending__button__icon cta-sending__button__icon--error" src="/public/svg/icon/icon_email_error.svg" />
+        <img v-if="responseType === 'error'" class="cta-sending__button__icon cta-sending__button__icon--error" :src="iconsPath[`icon_email_error`]?.src" />
       </template>
 
       <template v-if="sending" >
@@ -30,7 +39,7 @@ defineProps({
           <slot  />
         </div>
 
-        <img class="cta-sending__button__icon" :class="{ 'cta-sending__button__icon--sending': sending }" src="/public/svg/icon/icon_email.svg" />
+        <img class="cta-sending__button__icon" :class="{ 'cta-sending__button__icon--sending': sending }" :src="iconsPath[`icon_email`]?.src" />
       </template>
     </button>
   </div>
@@ -65,9 +74,9 @@ defineProps({
     position: relative;
     width: 175px;
 
-    @media screen and (max-width: 768px) {
-      width: 124px;
-      height: 56px;
+    @media screen and (max-width: 480px) {
+      // width: auto;
+      // height: auto;
     }
 
     &--sending {

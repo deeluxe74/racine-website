@@ -1,5 +1,6 @@
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, ref, onMounted } from 'vue'
+import { preloadImage } from '../../utils/image.util'
 
 defineProps({
   reverse: Boolean,
@@ -18,18 +19,30 @@ defineProps({
     paragraph: String,
   }
 })
+
+const iconsPath = ref({})
+const imagesPath = ref({})
+
+onMounted(async () => {
+  const globImages = import.meta.glob(`@/assets/image/feature/*.png`, { eager: false })
+  const globIcons = import.meta.glob(`@/assets/svg/icon/*.svg`, { eager: false })
+
+  const [icons, images] = await Promise.all([preloadImage(globIcons), preloadImage(globImages)])
+  iconsPath.value = icons
+  imagesPath.value = images
+})
 </script>
 
 <template>
   <div class="card-ticket" :class="{ 'card-ticket--small': small }">
     <div class="card-ticket__header" :style="`background-color: ${backgroundColor}; color: ${color};`">
       <h2>{{ title }}</h2>
-      <img :src="`/public/svg/icon/icon_${iconName}.svg`" />
+      <img :src="iconsPath[`icon_${iconName}`]?.src" alt="" />
     </div>
 
     <div class="card-ticket__content" :class="{ 'card-ticket__content--reverse': reverse }" :style="`background-color: ${backgroundColor};`">
       <div class="card-ticket__content__frame">
-        <img class="card-ticket__content__frame__image" :src="`/public/image/feature/feature_${image.src}.png`" :alt="image.alt" />
+        <img class="card-ticket__content__frame__image" :src="imagesPath[`feature_${image.src}`]?.src" :alt="image.alt" />
       </div>
       <div class="card-ticket__content__text" :style="`color: ${text.color};`">
         <h3 class="card-ticket__content__text__title">{{ text.title }}</h3>

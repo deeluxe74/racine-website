@@ -68,11 +68,11 @@ onBeforeUnmount(() => {
   <section class="section-qr-code">
     <div class="section-qr-code__head">
       <h2 class="section-qr-code__head__title">Révéler vos plats <br> par un simple scan</h2>
-      <p class="section-qr-code__head__paragraph">Transformez l'expérience de vos clients avec des QR codes dédiés à chaque plat. Laissez-les accéder à des descriptions détaillées, des traductions, des photos alléchantes et des informations sur les allergènes, le tout en scannant un simple QR code.</p>
+      <p class="section-qr-code__head__paragraph">Transformez l'expérience de vos clients avec des QR codes dédiés pour chaque plat. Laissez-les accéder à des descriptions détaillées, des traductions, des photos alléchantes et des informations sur les allergènes, le tout en scannant un simple QR code.</p>
     </div>
     
     <video ref="videoRef" class="section-qr-code__video" playsinline muted preload="none">
-      <source src="/public/video/lines.webm" type="video/webm">
+      <source src="@/assets/video/lines.webm" type="video/webm">
       <p>
         Votre navigateur ne supporte pas les vidéos. 
         Cette vidéo illustre des Qr code attachés a des plats.

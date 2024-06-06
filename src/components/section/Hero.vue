@@ -33,7 +33,10 @@ async function handleSubmit() {
           Révélez le vrai <mark>cœur</mark> de votre cuisine
         </h1>
         <p class="section-hero__content__text__paragraph">
-          Découvrez comment nous pouvons transformer vos plats avec des traductions, des illustrations et des informations détaillées.
+          Donnez vie à vos plats avec un espace dédié. 
+          <br>
+          Faite gagner du temps à votre équipe, améliorez la satisfaction de vos clients 
+          et transformez votre cuisine en une machine à créer des expériences culinaires inoubliables.
         </p>
       </div>
 
@@ -46,8 +49,8 @@ async function handleSubmit() {
     </div>
 
     <div class="section-hero__media">
-      <video class="section-hero__media__video" autoplay playsinline muted preload="auto" poster="/public/image/hero/screenpopup.png">
-        <source src="/public/video/screenpopup.webm" type="video/webm">
+      <video class="section-hero__media__video" autoplay playsinline muted preload="auto" poster="@/assets/image/hero/screenpopup.png">
+        <source src="@/assets/video/screenpopup.webm" type="video/webm">
         <p>
           Votre navigateur ne supporte pas les vidéos. 
           Cette vidéo montre un exemple d'application avec la possibilité de traduire, illustrer, ou encore avertir sur les allergies de vos plats.
@@ -108,6 +111,11 @@ async function handleSubmit() {
       width: fit-content;
       padding: 8px 8px;
 
+      @media screen and (max-width: 480px) {
+        width: 100%;
+        justify-content: space-between;
+      }
+
       &__input {
         padding-left: 24px;
         background: transparent;
@@ -123,6 +131,12 @@ async function handleSubmit() {
         &:focus {
           outline: none;
         }
+
+        @media screen and (max-width: 480px) {
+          width: 0;
+          flex-grow: 1;
+        }
+
       }
     }
   }
