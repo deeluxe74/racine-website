@@ -14,7 +14,7 @@ const features = [
     text: {
       color: 'var(--color-light-base)',
       title: 'Augmenter votre clientèle avec des traductions précises',
-      paragraph: 'Assurez-vous que chaque client comprenne parfaitement vos plats grâce à des traductions précises. En rendant vos plats accessibles dans plusieurs langues, vous pouvez attirer une clientèle internationale et optimiser votre service en gagnant du temps lors de la prise de commandes.',
+      paragraph: 'Assurez-vous que chaque client comprenne parfaitement vos plats grâce à des traductions précises.<br style="height: 8px;"> En rendant vos plats accessibles dans plusieurs langues, vous pouvez attirer une clientèle internationale et optimiser votre service en gagnant du temps lors de la prise de commandes.',
     }
   },
   {
@@ -30,7 +30,7 @@ const features = [
     text: {
       color: 'var(--color-dark-base)',
       title: "Simplifiez l'affichage des allergènes",
-      paragraph: "Garantissez la sécurité et la confiance de vos clients en affichant clairement les allergènes présents dans vos plats. Notre système intuitif simplifie l'affichage des informations cruciales, vous permettant de répondre aux normes obligatoires tout en offrant une expérience transparente et rassurante.",
+      paragraph: `Garantissez la sécurité et la confiance de vos clients en affichant clairement les allergènes présents dans vos plats. <br style="height: 8px;"> Notre système intuitif simplifie l'affichage des informations cruciales, vous permettant de répondre aux normes obligatoires tout en offrant une expérience transparente et rassurante.`,
     }
   },
   {
@@ -47,7 +47,7 @@ const features = [
     text: {
       color: 'var(--color-light-base)',
       title: 'Attirez plus de clients avec des photos alléchantes',
-      paragraph: "Capturez l'attention de vos clients et stimulez leur appétit avec des photos alléchantes de vos plats. Mettez en valeur la beauté et la qualité de vos créations culinaires grâce à des images de haute qualité, offrant ainsi une expérience visuelle attrayante qui va augmenter vos ventes et attirer plus de clients.",
+      paragraph: `Capturez l'attention de vos clients et stimulez leur appétit avec des photos alléchantes de vos plats. <br style="height: 8px;">Mettez en valeur la beauté et la qualité de vos créations culinaires grâce à des images de haute qualité, offrant ainsi une expérience visuelle attrayante qui va augmenter vos ventes et attirer plus de clients.`,
     }
   }
 ]
@@ -68,6 +68,12 @@ const features = [
 
 <style lang="scss">
 .section-features {
+  br {
+    display: block;
+    content: "";
+    height: 0px;
+  }
+
   container-type: normal;
   container-name: section-features;
 

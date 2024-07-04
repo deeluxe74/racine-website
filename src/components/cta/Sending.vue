@@ -1,10 +1,12 @@
 <script setup>
 import { defineProps, ref, onMounted} from 'vue'
 import { preloadImage } from '../../utils/image.util'
+import IconEmail from '../svg/IconEmail.vue'
 
 defineProps({
   sending: Boolean,
   responseType: String,
+  outlined: Boolean,
 })
 
 const iconsPath = ref({})
@@ -17,7 +19,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="cta-sending">
+  <div class="cta-sending" :class="{ 'cta-sending--outlined': outlined }">
     <div v-if="responseType" class="cta-sending__message" :class="{ 'cta-sending__message--error': responseType === 'error' }">
       {{ responseType === 'success' ? 'Votre mail a été envoyé !' : 'Une erreur est survenue' }}
     </div>
@@ -39,7 +41,9 @@ onMounted(async () => {
           <slot  />
         </div>
 
-        <img class="cta-sending__button__icon" :class="{ 'cta-sending__button__icon--sending': sending }" :src="iconsPath[`icon_email`]?.src" />
+        <IconEmail class="cta-sending__button__icon" :fill="outlined ? 'var(--color-secondary-base)' : 'var(--color-tertiary-base)'" :class="{ 'cta-sending__button__icon--sending': sending }" />
+
+        <!-- <img class="cta-sending__button__icon" :class="{ 'cta-sending__button__icon--sending': sending }" :src="iconsPath[`icon_email`]?.src" /> -->
       </template>
     </button>
   </div>
@@ -93,7 +97,6 @@ onMounted(async () => {
       position: absolute;
       left: 50%; 
       top: 50%; 
-      fill: var(--color-tertiary-base);
       height: 32px;
       width: auto;
 
@@ -107,6 +110,31 @@ onMounted(async () => {
 
       &--error {
         animation: appear 1 450ms forwards;
+      }
+    }
+  }
+
+  &--outlined {
+    .cta-sending {
+      &__button {
+        background-color: inherit;
+        border: 2px solid var(--color-secondary-base);
+        color: var(--color-secondary-base);
+
+        &:hover, &:focus {
+          transform: translateX(4px);
+          box-shadow: 0px 4px 0px 2px var(--color-secondary-base);
+        }
+
+        &__icon {
+          fill: var(--color-secondary-base);
+        }
+      }
+
+      &__message {
+        box-sizing: border-box;
+        background-color: var(--color-secondary-base);
+        color: var(--color-tertiary-base);
       }
     }
   }

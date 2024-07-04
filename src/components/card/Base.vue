@@ -24,6 +24,11 @@ defineProps({
 </template>
 
 <style lang="scss">
+br {
+  display: block;
+  content: "";
+  height: 0px;
+}
 .card-base {
   display: flex;
   flex-direction: column;

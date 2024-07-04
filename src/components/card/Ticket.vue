@@ -46,7 +46,7 @@ onMounted(async () => {
       </div>
       <div class="card-ticket__content__text" :style="`color: ${text.color};`">
         <h3 class="card-ticket__content__text__title">{{ text.title }}</h3>
-        <p class="card-ticket__content__text__paragraph">{{ text.paragraph }}</p>
+        <p class="card-ticket__content__text__paragraph" v-html="text.paragraph" />
       </div>
     </div>
   </div>

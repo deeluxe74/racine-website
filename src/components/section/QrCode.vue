@@ -8,7 +8,7 @@ const features = [
     slug: 'ingredient',
     backgroundColor: 'var(--color-primary-base)',
     text: {
-      paragraph: 'Vos ingrédients définissent la qualité du plat que vous servez. <br><br> Mettez en avant leurs provenances et vous obtiendrez la confiance de vos clients. <br> Indiquer les allergènes pour veiller à la sécurité de tout le monde.',
+      paragraph: 'Vos ingrédients définissent la qualité du plat que vous servez. <br><br> Mettez en avant leurs provenances et obtenez la confiance de vos clients.',
     }
   },
   {
@@ -68,7 +68,7 @@ onBeforeUnmount(() => {
   <section class="section-qr-code">
     <div class="section-qr-code__head">
       <h2 class="section-qr-code__head__title">Révéler vos plats <br> par un simple scan</h2>
-      <p class="section-qr-code__head__paragraph">Transformez l'expérience de vos clients avec des QR codes dédiés pour chaque plat. Laissez-les accéder à des descriptions détaillées, des traductions, des photos alléchantes et des informations sur les allergènes, le tout en scannant un simple QR code.</p>
+      <p class="section-qr-code__head__paragraph">Transformez l'expérience de vos clients grâce aux QR codes. Laissez-les accéder à des descriptions détaillées, des traductions, des photos alléchantes et des informations sur les allergènes, le tout en scannant un simple QR code avec n'importe qu'elle smartphone.</p>
     </div>
     
     <video ref="videoRef" class="section-qr-code__video" playsinline muted preload="none">
@@ -87,6 +87,12 @@ onBeforeUnmount(() => {
 
 <style lang="scss">
 .section-qr-code {
+  br {
+    display: block;
+    content: "";
+    height: 4px;
+  }
+
   container-type: inline-size;
   container-name: section-qr-code;
 
